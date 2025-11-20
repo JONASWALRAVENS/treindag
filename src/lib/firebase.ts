@@ -2,7 +2,7 @@ import { initializeApp, getApps, type FirebaseApp } from 'firebase/app';
 import {
   getAuth,
   setPersistence,
-  inMemoryPersistence,
+  browserLocalPersistence,
   type User
 } from 'firebase/auth';
 import {
@@ -32,6 +32,6 @@ export const db: Firestore = getFirestore(app);
 export { serverTimestamp };
 
 // optional: no persistence (resets when app/tab closes)
-setPersistence(auth, inMemoryPersistence).catch(console.error);
+setPersistence(auth, browserLocalPersistence).catch(console.error);
 
 export type AuthUser = User;
