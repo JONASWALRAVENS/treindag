@@ -1,0 +1,188 @@
+:root {
+  --color-bg: #592316;
+  --color-primary: #F27405;
+  --color-primary-soft: #F2B544;
+  --color-primary-dark: #594B02;
+  --color-danger: #F24405;
+
+  --color-text: #fff9f2;
+  --color-text-muted: rgba(255, 249, 242, 0.7);
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.35);
+  --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+  --safe-bottom: env(safe-area-inset-bottom, 0);
+  --safe-top: env(safe-area-inset-top, 0);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'Segoe UI', Roboto, sans-serif;
+  background: radial-gradient(circle at top left, #F27405 0%, #592316 45%, #120707 100%);
+  color: var(--color-text);
+}
+
+a {
+  color: inherit;
+}
+
+/* App shell for mobile */
+
+.app-root {
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #592316 0%, #2F130B 100%);
+}
+
+/* Top area where pages live */
+
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 16px 72px; /* leave room for bottom nav */
+}
+
+/* Generic card */
+
+.card {
+  background: rgba(24, 9, 5, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 16px 18px;
+  border: 1px solid rgba(242, 181, 68, 0.15);
+}
+
+/* Headings */
+
+h1,
+h2,
+h3 {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+
+button,
+.button {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: #1a0903;
+  box-shadow: var(--shadow-subtle);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+button:disabled,
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  box-shadow: none;
+}
+
+button.ghost,
+.button.ghost {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(242, 181, 68, 0.4);
+  box-shadow: none;
+}
+
+button.danger {
+  background: var(--color-danger);
+  color: white;
+}
+
+/* Inputs */
+
+input {
+  width: 100%;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(242, 181, 68, 0.5);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  background: rgba(12, 4, 2, 0.95);
+  color: var(--color-text);
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--color-text-muted);
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.form-field {
+  margin-bottom: 12px;
+}
+
+/* Utility text */
+
+.text-muted {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  background: rgba(242, 181, 68, 0.16);
+  color: var(--color-primary-soft);
+}
+
+/* Responsive: on wider screens center the "phone" */
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: radial-gradient(circle at center, #F24405 0%, #592316 45%, #000 100%);
+  }
+}

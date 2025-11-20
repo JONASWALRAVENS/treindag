@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  // optional: you can import the user store to show the logged in user
+  import { user } from '$lib/stores/auth';
+</script>
+
+<h1>Afterwork Top 3</h1>
+<p>Use the tabs below to nominate colleagues, view your history, or see the leaderboard.</p>
+
+{#if $user}
+  <p>Logged in as {$user.email}</p>
+{/if}
