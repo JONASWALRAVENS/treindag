@@ -63,7 +63,7 @@
 	<section class="leaderboard-page" in:fade={{ duration: 300 }}>
 		<header class="card leaderboard-header">
 			<h1>Leaderboard</h1>
-			<p class="text-muted">Who collected the most points over all afterwork sessions.</p>
+			<p class="text-muted">Who collected the most points over all treindagen.</p>
 		</header>
 
 		{#if rows.length === 0}

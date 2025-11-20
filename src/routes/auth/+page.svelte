@@ -33,8 +33,8 @@
     <span>🍻</span>
   </div>
 
-  <h1>Afterwork Top 3</h1>
-  <p class="text-muted">Nominate your colleagues once a month and see who shines.</p>
+  <h1>Treindag Top 3</h1>
+  <!-- <p class="text-muted">Nominate your colleagues once a month and see who shines.</p> -->
 
   <div class="card auth-card">
     {#if error}<p class="auth-error">{error}</p>{/if}
@@ -60,7 +60,7 @@
       {#if isSignup}
         Already have an account? Log in
       {:else}
-        New here? Create an account
+        Create an account
       {/if}
     </button>
   </div>

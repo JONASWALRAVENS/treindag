@@ -19,7 +19,14 @@
 	const nominationsRef = collection(db, 'nominations');
 
 	const today = new Date();
-	const sessionDate = today.toISOString().slice(0, 10); // YYYY-MM-DD
+	const options: Intl.DateTimeFormatOptions = {
+		weekday: 'long',
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric'
+	};
+
+	const sessionDate = today.toLocaleDateString("en-GB", options);
 
 	// load colleagues once
 	onMount(async () => {
@@ -112,7 +119,7 @@
 </script>
 
 <svelte:head>
-	<title>Nominate • Afterwork Top 3</title>
+	<title>Nominate • Treindag Top 3</title>
 </svelte:head>
 
 {#if loading}
@@ -121,7 +128,7 @@
 	<section class="nominate-page" in:fade={{ duration: 300 }}>
 		<header class="card nominate-header">
 			<h1>Nominate your Top 3</h1>
-			<p class="text-muted">Session date: {sessionDate}</p>
+			<p class="text-muted">{sessionDate}</p>
 		</header>
 
 		<section class="card list-card">

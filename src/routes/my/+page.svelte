@@ -81,7 +81,7 @@
 
     {#if nominations.length === 0}
       <div class="card">
-        <p class="text-muted">No nominations yet. Time to spread some love ✨</p>
+        <p class="text-muted">No nominations yet. Time to find the weakest link ✨</p>
       </div>
     {:else}
       <div class="my-list">
