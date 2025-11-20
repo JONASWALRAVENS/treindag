@@ -4,6 +4,7 @@
 	import { user } from '$lib/stores/auth';
 	import { get } from 'svelte/store';
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	type Colleague = { id: string; name: string };
 
@@ -117,7 +118,7 @@
 {#if loading}
 	<p class="text-muted">Loading colleagues…</p>
 {:else}
-	<section class="nominate-page">
+	<section class="nominate-page" in:fade={{ duration: 300 }}>
 		<header class="card nominate-header">
 			<h1>Nominate your Top 3</h1>
 			<p class="text-muted">Session date: {sessionDate}</p>

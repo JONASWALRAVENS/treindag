@@ -10,6 +10,7 @@
   import { user } from '$lib/stores/auth';
   import { get } from 'svelte/store';
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
 
   type Colleague = { id: string; name: string };
   type Nomination = {
@@ -70,7 +71,7 @@
 {#if loading}
   <p class="text-muted">Loading…</p>
 {:else}
-  <section class="my-page">
+  <section class="my-page" in:fade={{ duration: 300 }}>
     <header class="card my-header">
       <h1>My nominations</h1>
       <p class="text-muted">
