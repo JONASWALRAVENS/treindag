@@ -123,6 +123,41 @@
 			<p class="text-muted">Session date: {sessionDate}</p>
 		</header>
 
+		<section class="card list-card">
+			<h2>Selected (Top 3)</h2>
+			{#if selected.length === 0}
+				<p class="text-muted">No colleagues selected yet.</p>
+			{:else}
+				<ol class="selected-list">
+					{#each selected as c, i}
+						<li>
+							<div class="left">
+								<div class="rank-badge">{i + 1}</div>
+								<div class="info">
+									<span>{c.name}</span>
+									<span class="points-pill">
+										{i === 0 ? '3 pts' : i === 1 ? '2 pts' : '1 pt'}
+									</span>
+								</div>
+							</div>
+							<div class="actions">
+								<button class="ghost" on:click={() => moveUp(i)}>↑</button>
+								<button class="ghost" on:click={() => moveDown(i)}>↓</button>
+							</div>
+						</li>
+					{/each}
+				</ol>
+			{/if}
+
+			{#if selected.length === 3}
+				<button class="save-btn" on:click={saveNomination} disabled={saving}>
+					{saving ? 'Saving…' : 'Save nomination'}
+				</button>
+			{/if}
+
+			{#if message}<p class="text-muted">{message}</p>{/if}
+		</section>
+
 		<div class="card nominate-card">
 			<div class="form-field">
 				<label>Search or add colleague</label>
@@ -158,41 +193,6 @@
 					</button>
 				{/each}
 			</div>
-		</section>
-
-		<section class="card list-card">
-			<h2>Selected (Top 3)</h2>
-			{#if selected.length === 0}
-				<p class="text-muted">No colleagues selected yet.</p>
-			{:else}
-				<ol class="selected-list">
-					{#each selected as c, i}
-						<li>
-							<div class="left">
-								<div class="rank-badge">{i + 1}</div>
-								<div class="info">
-									<span>{c.name}</span>
-									<span class="points-pill">
-										{i === 0 ? '3 pts' : i === 1 ? '2 pts' : '1 pt'}
-									</span>
-								</div>
-							</div>
-							<div class="actions">
-								<button class="ghost" on:click={() => moveUp(i)}>↑</button>
-								<button class="ghost" on:click={() => moveDown(i)}>↓</button>
-							</div>
-						</li>
-					{/each}
-				</ol>
-			{/if}
-
-			{#if selected.length === 3}
-				<button class="save-btn" on:click={saveNomination} disabled={saving}>
-					{saving ? 'Saving…' : 'Save nomination'}
-				</button>
-			{/if}
-
-			{#if message}<p class="text-muted">{message}</p>{/if}
 		</section>
 	</section>
 {/if}
@@ -243,7 +243,7 @@
 		border: 1px solid rgba(242, 181, 68, 0.45);
 		padding: 6px 10px;
 		font-size: 0.8rem;
-    color: #a86018;
+		color: #a86018;
 	}
 
 	.chip-list button.selected {

@@ -106,9 +106,9 @@
                           <em>Unknown colleague</em>
                         {/if}
                       </span>
-                      <span class="points-pill">
+                      <!-- <span class="points-pill">
                         {i === 0 ? '3 pts' : i === 1 ? '2 pts' : '1 pt'}
-                      </span>
+                      </span> -->
                     </div>
                   </div>
                 </li>
